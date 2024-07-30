@@ -1,4 +1,8 @@
-function Header() {
+import PropType from 'prop-types';
+import { useState } from 'react';
+
+function Header({ onSearch }) {
+    const [textSearch, setTextSearch] = useState('');
     return (
         <div className="p-4 bg-black flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -17,11 +21,23 @@ function Header() {
             </div>
             {/* Input */}
             <div className="flex items-center space-x-4">
-                <input type="text" placeholder="Search" className="p-3 text-black " />
-                <button className="p-2 bg-red-700 text-white rounded-md">Search</button>
+                <input
+                    type="text"
+                    placeholder="Search"
+                    className="p-3 text-black "
+                    onChange={(e) => setTextSearch(e.target.value)}
+                    value={textSearch}
+                />
+                <button className="p-2 bg-red-700 text-white rounded-md" onClick={() => onSearch(textSearch)}>
+                    Search
+                </button>
             </div>
         </div>
     );
 }
+
+Header.propTypes = {
+    onSearch: PropType.func,
+};
 
 export default Header;
