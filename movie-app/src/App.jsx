@@ -31,11 +31,11 @@ function App() {
     }, []);
 
     return (
-        <div className="bg-black">
+        <div className="bg-black pb-10">
             <Header />
             <Banner />
-            <MovieList title={'Phim Hot'} data={movie.slice(0, 5)} />
-            <MovieList title={'Phim Đề Cử'} data={movieRate.slice(0, 5)} />
+            <MovieList title={'Phim Hot'} data={movie} />
+            <MovieList title={'Phim Đề Cử'} data={movieRate} />
         </div>
     );
 }
